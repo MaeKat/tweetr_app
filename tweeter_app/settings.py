@@ -77,6 +77,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'tweeter_app.wsgi.application'
 
+BOOTSTRAP4 = { 'include_jquery': True}
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
