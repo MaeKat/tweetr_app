@@ -14,3 +14,10 @@ class TweetCreateView(CreateView):
 
     def get_success_url(self):
         return reverse('home')
+        
+    def get_login_url(self):
+        return reverse('login')
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
