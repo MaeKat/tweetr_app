@@ -11,6 +11,7 @@ python-dateutil = "*"
 gunicorn = "*"
 django-heroku = "*"
 django-bootstrap4 = "*"
+django-bootstrap-datepicker-plus = "*"
 
 [requires]
 python_version = "3.6"
