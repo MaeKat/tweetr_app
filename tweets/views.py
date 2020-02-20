@@ -1,6 +1,7 @@
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView
 from django.urls import reverse
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Tweet
 
 class TweetListView(ListView):
@@ -10,7 +11,7 @@ class TweetListView(ListView):
 class TweetCreateView(CreateView):
     model = Tweet
     template_name = 'tweet_new.html'
-    fields = ['user', 'body']
+    fields = ['body']
 
     def get_success_url(self):
         return reverse('home')
