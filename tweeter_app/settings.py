@@ -38,9 +38,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+
     'rest_framework',
+    'rest_framework.authtoken',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'rest_auth',
+    'rest_auth.registration',
     'bootstrap4',
     'bootstrap_datepicker_plus',
+
     'users',
     'tweets',
     'api',
@@ -84,6 +93,8 @@ BOOTSTRAP4 = { 'include_jquery': True}
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 
+SITE_ID =1
+
 #Email
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend' # new
 EMAIL_HOST = 'smtp.sendgrid.net' 
@@ -106,9 +117,14 @@ DATABASES = {
 REST_FRAMEWORK={
     'DEFAULT_PERMISSION_CLASSES':[
         'rest_framework.permissions.IsAuthenticatedOrReadOnly',
-    ]
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication', 
+        'rest_framework.authentication.SessionAuthentication', 
+],
 
 }
+
 
 
 # Password validation
